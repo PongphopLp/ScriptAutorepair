@@ -14,6 +14,8 @@ output_directory = 'output'
 if not os.path.exists(output_directory):
     os.makedirs(output_directory)
 
+print('Script is running, please wait for a while...')
+
 # Loop through each pair
 for pair_number in range(1, 1343):
     pair_folder_name = f'Pair{pair_number}'

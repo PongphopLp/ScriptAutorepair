@@ -17,6 +17,8 @@ cursor.execute('''
     ORDER BY V.pairid ASC
 ''')
 results = cursor.fetchall()
+# [0] = pairid, [1] = Method1 id, [2] = Method1 raw code, [3] = Method1 test case, [4] = Method1 test case parent
+# [5] = Method2 id, [6] = Method2 raw code, [7] = Method2 test case, [8] = Method2 test case parent
 
 # Create the main output directory if it doesn't exist
 output_directory = 'output'
@@ -25,7 +27,6 @@ if not os.path.exists(output_directory):
 
 # Iterate over the verified pairs and save them in their specific folders
 for index, pair in enumerate(results, start=1):
-    pair_id = pair[0]
     pair_directory = os.path.join(output_directory, f'Pair{index}')
     
     # Create the pair directory
