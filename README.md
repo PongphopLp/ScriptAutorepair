@@ -1,5 +1,5 @@
 ************************************************************************************************
-Extract then rename and save -> Mutanerator -> Organize mutants files -> kGenProg
+Extract then rename files, enclose class and save -> Rename method -> Mutanerator -> Organize mutants files -> kGenProg
 ************************************************************************************************
 
 **Extract db and save**
