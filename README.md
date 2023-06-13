@@ -1,16 +1,15 @@
 ************************************************************************************************
-Extract then rename files, enclose class and save -> Rename method -> Mutanerator -> Organize mutants files -> kGenProg
+Extract then rename files, enclose class and save -> Rename Method -> Mutanerator -> Organize mutants and test files -> kGenProg
 ************************************************************************************************
 
 **Extract db and save**
 The save_pair.py in ExtractSqlite/ use to extract the files from the .db database file.
 Also renaming the file name and enclosing the src code method.
 Just make sure to correct the path.
-The output structure will be:
 
-   
-Where # is the number of pair from 1 to 1342, and $ is the number of method between 1 and 2.
 
+**Rename Method**
+Just put the rename script in the same directory as output folder from save_pair.py and make sure to correct the path or folder name.
 
 **Mutanerator**
 The mutate_script.py in Mutation/ use to automatically mutate src code files in every pair. 
@@ -18,6 +17,6 @@ Put this file and the result folder from the save_pair script in the Mutanerator
 
 
 **Organize mutants and test files structure**
-Make sure to put the data folder that contain the Target_ESTest.java and Target_ESTest_scaffolding.java in the same directory as output folder that contains the mutants files. Then run this script in this directory.
+Make sure to put the data folder from save_pair.py that contain the Target_ESTest.java and Target_ESTest_scaffolding.java in the same directory as output folder that contains the mutants files. Then run this script in the directory.
 
 **kGenProg**
