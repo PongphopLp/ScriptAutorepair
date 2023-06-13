@@ -6,6 +6,19 @@ Extract then rename and save -> Mutanerator -> Organize mutants files -> kGenPro
 The save_pair.py in ExtractSqlite/ use to extract the files from the .db database file.
 Also renaming the file name and enclosing the src code method.
 Just make sure to correct the path.
+The output structure will be:
+data/
+ Pair#/
+  Method$/
+   Pair#_Method$.java
+   Target_ESTest.java
+   Target_ESTest_scaffolding.java
+  Method$/
+   Pair#_Method$.java
+   Target_ESTest.java
+   Target_ESTest_scaffolding.java
+   
+Where # is the number of pair from 1 to 1342, and $ is the number of method between 1 and 2.
 
 
 **Mutanerator**
