@@ -21,7 +21,7 @@ results = cursor.fetchall()
 # [5] = Method2 id, [6] = Method2 raw code, [7] = Method2 test case, [8] = Method2 test case parent
 
 # Create the main output directory if it doesn't exist
-output_directory = 'output'
+output_directory = 'data'
 if not os.path.exists(output_directory):
     os.makedirs(output_directory)
 
