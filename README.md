@@ -18,5 +18,6 @@ Put this file and the result folder from the save_pair script in the Mutanerator
 
 **Organize mutants and test files structure**
 Make sure to put the data folder from save_pair.py that contain the Target_ESTest.java and Target_ESTest_scaffolding.java in the same directory as output folder that contains the mutants files. Then run this script in the directory.
+The script will then move both test file of each pair to the specified directory.
 
 **kGenProg**
