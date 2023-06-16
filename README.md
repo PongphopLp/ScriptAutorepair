@@ -10,6 +10,9 @@ Just make sure to correct the path.
 
 **Rename Method**
 Just put the rename script in the same directory as output folder from save_pair.py and make sure to correct the path or folder name.
+The script doesn't cover all of the case of method name. So after running the script there are 2 pairs that their method name is not changed. (Pair 254 and 269)
+But I decided to rename those 2 pair method's name by hand.
+
 
 **Mutanerator**
 The mutate_script.py in Mutation/ use to automatically mutate src code files in every pair. 
