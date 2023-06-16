@@ -8,6 +8,8 @@ def rename_method_name(java_file):
 
     # Find the method declaration
     method_declaration = re.search(r'\w+(\[\])*(\[\])? \w+\(.*?\)', content)
+    # w+: match word characters, (\[\])*: match zero or more [], (\[\])?: match optional [], space, w+: match word characters ||||| returnType methodName(parameters)
+
     if method_declaration: # If method declaration is found
         # Get the original method name
         original_method_name = method_declaration.group(0).split()[1].split('(')[0] # .group(0) return the matched text, and then split it into word
@@ -24,7 +26,7 @@ def rename_method_name(java_file):
 
         print(f"Renamed method name in {java_file} from '{original_method_name}' to '__target__'") # console log
 
-def rename_method_names(directory):
+def find_java_file(directory):
     # Iterate over each Pair directory
     for pair_dir in os.listdir(directory): # PairN/
         pair_dir_path = os.path.join(directory, pair_dir) # data/PairN/
@@ -45,4 +47,4 @@ def rename_method_names(directory):
 
 # Path to the data directory
 directory = 'data'
-rename_method_names(directory)
+find_java_file(directory)
