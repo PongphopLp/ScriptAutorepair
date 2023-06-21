@@ -47,11 +47,11 @@ for index, pair in enumerate(results, start=1):
     with open(os.path.join(method1_directory, f'Pair{index}_Method1.java'), 'w', encoding='utf-8') as file1, \
             open(os.path.join(method2_directory, f'Pair{index}_Method2.java'), 'w', encoding='utf-8') as file2:
         # Enclose the raw code of the left method with class definition
-        left_method_code = f'public class Target {{\n  {pair[2].decode("utf-8")}\n}}'
+        left_method_code = f'import java.util.*;\n\npublic class Target {{\n  {pair[2].decode("utf-8")}\n}}'
         file1.write(left_method_code)
 
         # Enclose the raw code of the right method with class definition
-        right_method_code = f'public class Target {{\n  {pair[6].decode("utf-8")}\n}}'
+        right_method_code = f'import java.util.*;\n\npublic class Target {{\n  {pair[6].decode("utf-8")}\n}}'
         file2.write(right_method_code)
 
     # Save the test cases and scaffolding into Java files
@@ -59,8 +59,7 @@ for index, pair in enumerate(results, start=1):
             open(os.path.join(method1_directory, f'Target_ESTest_scaffolding.java'), 'w', encoding='utf-8') as file4, \
             open(os.path.join(method2_directory, f'Target_ESTest.java'), 'w', encoding='utf-8') as file5, \
             open(os.path.join(method2_directory, f'Target_ESTest_scaffolding.java'), 'w', encoding='utf-8') as file6:
-        file3.write(pair[3].decode('utf-8'))  # Write the test cases of the left method into Target_ESTest.java
-        file4.write(pair[4].decode('utf-8'))  # Write the scaffolding test cases of the left method into Target_ESTest_scaffolding.java
-        file5.write(pair[7].decode('utf-8'))  # Write the test cases of the right method into Target_ESTest.java
-        file6.write(pair[8].decode('utf-8'))  # Write the scaffolding test cases of the right method into Target_ESTest_scaffolding.java
-
+            file3.write(pair[3].decode('utf-8')) # Write the test cases of the left method into Target_ESTest.java
+            file4.write(pair[4].decode('utf-8')) # Write the scaffolding test cases of the left method into Target_ESTest_scaffolding.java
+            file5.write(pair[7].decode('utf-8')) # Write the test cases of the right method into Target_ESTest.java
+            file6.write(pair[8].decode('utf-8')) # Write the scaffolding test cases of the right method into Target_ESTest_scaffolding.java
