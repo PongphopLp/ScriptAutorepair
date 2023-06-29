@@ -1,5 +1,33 @@
 import os
 
+def add_method(pure_test_file, mutant_test_file):
+    with open(pure_test_file, 'r', encoding='utf-8') as pure_file:
+        pure_lines = pure_file.readlines()
+
+    with open(mutant_test_file, 'r', encoding='utf-8') as mutant_file:
+        mutant_lines = mutant_file.readlines()
+
+    class_declaration_index = -1
+
+    # Find the class declaration in the mutant test file
+    for i, line in enumerate(mutant_lines):
+        if 'class' in line:
+            class_declaration_index = i
+            break
+
+    if class_declaration_index != -1:
+        mutant_lines.insert(class_declaration_index + 1, '\n')
+        mutant_lines[class_declaration_index + 2: class_declaration_index + 2] = pure_lines
+
+        with open(mutant_test_file, 'w', encoding='utf-8') as modified_file:
+            modified_file.writelines(mutant_lines)
+
+        print('Method added successfully!')
+    else:
+        print('Class declaration not found in the mutant test file.')
+
+
+
 def add_method_to_files(pure_folder, mutants_folder):
     for pair_folder in os.listdir(pure_folder): # Pair#
 
@@ -21,25 +49,9 @@ def add_method_to_files(pure_folder, mutants_folder):
                     if file.endswith('.java'):
                         mutant_file_path = os.path.join(root, file)
 
-                        with open(mutant_file_path, 'r') as mutant_file:
-                            lines = mutant_file.readlines()
+                        add_method(pure_method_file, mutant_file_path)
+                        print(f'Method added to {mutant_file_path}')
 
-                        class_end_index = None
-                        for i, line in enumerate(lines):
-                            if line.strip().startswith('}'):
-                                class_end_index = i
-                                break
-
-                        if class_end_index is not None:
-                            with open(mutant_file_path, 'r+') as mutant_file:
-                                lines.insert(class_end_index, '\n')
-                                with open(pure_method_file, 'r') as pure_file:
-                                    pure_lines = pure_file.readlines()
-                                lines.insert(class_end_index, '  ' + ''.join(pure_lines) + '\n')
-                                mutant_file.seek(0)
-                                mutant_file.writelines(lines)
-
-                            print(f'Method added to {mutant_file_path}')
 
 # Usage example
 pure_method_folder_path = 'pure_method'
