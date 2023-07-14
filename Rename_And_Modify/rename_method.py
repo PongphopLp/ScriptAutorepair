@@ -41,7 +41,7 @@ def find_java_file(directory):
                 if os.path.isdir(method_dir_path): # data/PairN/PairN_MethodM/ = dir?
                     # Iterate over each Java file in the Method directory
                     for filename in os.listdir(method_dir_path):
-                        if filename.endswith('.java') and filename.startswith(pair_dir): # check if filename start with "PairN"... end with ".java"
+                        if filename=='Target.java': # check if filename start with "PairN"... end with ".java"
                             java_file_path = os.path.join(method_dir_path, filename) # data/PairN/PairN_MethodM/PairN_MethodM.java
                             rename_method_name(java_file_path) # Call renaming method with the path to java file
 

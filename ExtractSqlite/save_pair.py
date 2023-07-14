@@ -44,8 +44,8 @@ for index, pair in enumerate(results, start=1):
         os.makedirs(method2_directory)
     
     # Save the modified raw code into Java files
-    with open(os.path.join(method1_directory, f'Pair{index}_Method1.java'), 'w', encoding='utf-8') as file1, \
-            open(os.path.join(method2_directory, f'Pair{index}_Method2.java'), 'w', encoding='utf-8') as file2:
+    with open(os.path.join(method1_directory, f'Target.java'), 'w', encoding='utf-8') as file1, \
+            open(os.path.join(method2_directory, f'Target.java'), 'w', encoding='utf-8') as file2:
         # Enclose the raw code of the left method with class definition
         left_method_code = f'import java.util.*;\n\npublic class Target {{\n  {pair[2].decode("utf-8")}\n}}'
         file1.write(left_method_code)

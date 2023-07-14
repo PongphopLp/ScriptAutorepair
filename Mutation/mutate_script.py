@@ -27,7 +27,7 @@ for pair_number in range(1, 1343):
         method_folder_path = os.path.join(pair_folder_path, method_folder_name)
 
         # Specify the path to the Java file to be mutated
-        java_file_path = os.path.join(method_folder_path, f'Pair{pair_number}_Method{method_number}.java')
+        java_file_path = os.path.join(method_folder_path, f'Target.java')
 
         # Specify the path for the CSV log file
         csv_log_file = os.path.join(output_directory, pair_folder_name, f'Pair{pair_number}_Method{method_number}', 'log.csv')
