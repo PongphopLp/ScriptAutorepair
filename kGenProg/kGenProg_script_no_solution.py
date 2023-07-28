@@ -19,18 +19,18 @@ def run_kgenprog(method_dir_path, method_dir, test_dir):
             test_file = os.path.join(test_dir, f"Target_ESTest.java")
 
             # Construct the kGenProg command
-            command = f"java -jar kGenProg-1.8.2.jar -r ./ -s {source_file} -t {test_file} -c evosuite-1.2.0.jar -o output --patch-output"
+            command = f"java -jar kGenProg-1.8.2.jar -r ./ -s {source_file} -t {test_file} -c evosuite-1.2.0.jar -o output_no_sol --patch-output"
 
             # Run the kGenProg command
             os.system(command)
 
             # Path to the result CSV file
-            result_csv = 'result.csv'
+            result_csv = 'result_no_sol.csv'
 
             # Check if the command was successful
-            if os.path.exists("output"):
+            if os.path.exists("output_no_sol"):
                 # Check if there are files in the output directory
-                output_dir = "output"
+                output_dir = "output_no_sol"
                 if len(os.listdir(output_dir)) > 0:
                     print("There are files in the output directory")
 
@@ -43,7 +43,7 @@ def run_kgenprog(method_dir_path, method_dir, test_dir):
                             os.rename(folder_path, renamed_folder_path)
 
                             # Move the renamed folder to 'all_pairs_patch' directory
-                            all_pairs_patch_dir = os.path.join(os.path.dirname(output_dir), 'all_pairs_patch')
+                            all_pairs_patch_dir = os.path.join(os.path.dirname(output_dir), 'all_pairs_patch_no_sol')
                             if not os.path.exists(all_pairs_patch_dir):
                                 os.makedirs(all_pairs_patch_dir)
                             shutil.move(renamed_folder_path, os.path.join(all_pairs_patch_dir, renamed_folder))
@@ -101,11 +101,11 @@ def iterate_all_pairs(root_directory):
                         print(f"No mutants found in {method_dir_path}. Skipping.")
 
 # Path to the root directory of the target project
-root_directory = 'data'
+root_directory = 'data_no_sol'
 
 # Delete the result CSV file if it exists
-if os.path.isfile('result.csv'):
-    os.remove('result.csv')
+if os.path.isfile('result_no_sol.csv'):
+    os.remove('result_no_sol.csv')
 
 # Run kGenProg for all pairs
 iterate_all_pairs(root_directory)

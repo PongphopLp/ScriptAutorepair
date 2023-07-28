@@ -23,6 +23,4 @@ for pair_number in range(1, 1343):
         destination_file1 = os.path.join(destination_path, 'Target_ESTest.java')
         shutil.move(source_file1, destination_file1)
 
-        source_file2 = os.path.join(source_path, 'Target_ESTest_scaffolding.java')
-        destination_file2 = os.path.join(destination_path, 'Target_ESTest_scaffolding.java')
-        shutil.move(source_file2, destination_file2)
+        
