@@ -15,11 +15,11 @@ But I decided to rename those 2 pair method's name by hand.
 
 
 **Mutanerator**
-The mutate_script.py in Mutation/ use to automatically mutate src code files in every pair. 
+The mutate_script.py in Mutation/ use to automatically mutate src code files in every pair. \n
 Put this file and the result folder from the save_pair script in the Mutanerator repository and edit the important paths written in the script file including path of .jar file, path of pairs folder, and path of output folder for this script.
 
 
-**Organize mutants and test files structure**
+**Organize mutants and test files structure** \n
 Make sure to put the data folder from save_pair.py that contain the Target_ESTest.java and Target_ESTest_scaffolding.java in the same directory as output folder that contains the mutants files. Then run this script in the directory.
 The script will then move both test file of each pair to the specified directory.
 
